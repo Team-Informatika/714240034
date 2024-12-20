@@ -7,15 +7,18 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #74b9ff, #a29bfe);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: url('https://media.giphy.com/media/pOEbLRT4SwD35IELiQ/giphy.gif') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
 }
 
+/* Kartu Nama */
 .business-card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* Transparan agar menyatu dengan GIF */
     width: 400px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -29,6 +32,7 @@ body {
     transform: translateY(-10px);
 }
 
+/* Header Kartu Nama */
 .card-header {
     background: #6c5ce7;
     color: #fff;
@@ -46,6 +50,7 @@ body {
     opacity: 0.9;
 }
 
+/* Gambar Profil */
 .profile-picture img {
     width: 80px;
     height: 80px;
@@ -53,6 +58,7 @@ body {
     border: 3px solid #fff;
 }
 
+/* Bagian Konten Kartu Nama */
 .card-body {
     padding: 20px;
     font-size: 14px;
@@ -68,10 +74,11 @@ body {
     font-weight: 500;
 }
 
+/* Skillset dan Hourly Rate */
 .skillset, .rate {
     padding: 20px;
     background: #f1f2f6;
-    text-align: center; /* Center text alignment */
+    text-align: center; /* Center text */
 }
 
 .skillset h2, .rate h2 {
@@ -82,7 +89,7 @@ body {
 
 .skillset ul {
     list-style: none;
-    padding-left: 0; /* Remove padding for centered layout */
+    padding-left: 0;
 }
 
 .skillset ul li {
@@ -98,6 +105,7 @@ body {
     margin-top: 10px;
 }
 
+/* Footer dengan Link Sosial */
 .card-footer {
     background: #dfe6e9;
     padding: 10px;
@@ -115,4 +123,16 @@ body {
 
 .card-footer .social-link:hover {
     color: #0984e3;
+}
+
+/* Tambahan Overlay jika GIF terlalu mencolok */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Warna overlay */
+    z-index: -1; /* Tetap di bawah konten utama */
 }

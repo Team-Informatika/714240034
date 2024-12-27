@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    box-sizing: border-box;
 }
 
 /* Business Card Styles */
@@ -27,7 +28,7 @@ body {
 }
 
 .card-header {
-    background: #0055ff;
+    background: #00a6ff;
     color: #fff;
     padding: 20px;
 }
@@ -91,7 +92,7 @@ body {
 }
 
 .card-footer {
-    background: #0055ff;
+    background: #00a6ff;
     padding: 15px;
 }
 
@@ -105,4 +106,28 @@ body {
 
 .card-footer a:hover {
     color: #c8e6c9;
+}
+
+/* Responsiveness for Mobile Devices */
+@media (max-width: 480px) {
+    .business-card {
+        width: 95%; /* Gunakan hampir seluruh lebar layar */
+        margin: 10px;
+    }
+
+    .card-header h1 {
+        font-size: 18px; /* Perkecil ukuran teks */
+    }
+
+    .job-title {
+        font-size: 12px;
+    }
+
+    .skillset ul li {
+        font-size: 14px;
+    }
+
+    .rate p {
+        font-size: 14px;
+    }
 }

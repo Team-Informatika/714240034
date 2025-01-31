@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kartu nama digital Adryan Nur Arif - Engineering dengan skillset di Frontend, Backend, dan UI/UX Design.">
+    <meta name="google-site-verification" content="2D3E9kFZxoBl49V6D76c2otao4s2B7ZvKhUMtBRMWac" />
+    <title>Kartu Nama Digital</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H2LBW1RG34"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H2LBW1RG34');
+    </script>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="business-card-horizontal">
+        <div class="card-left">
+            <div class="profile-picture" style="margin-top: 20px;">
+                <img src="image/self.jpg" alt="Foto profil Adryan Nur Arif" id="profileImage">
+            </div>
+            <div class="quote">
+                <p>"Turning ideas into reality, one line of code at a time."</p>
+            </div>
+        </div>
+        <div class="card-right">
+            <div class="card-header">
+                <h1>Adryan Nur Arif</h1>
+                <p class="job-title">Engineering</p>
+            </div>
+            <div class="card-body">
+                <p>I am passionate about web development and application development, creating impactful solutions that merge functionality with design.</p>
+            </div>
+            <div class="skillset">
+                <h2>My Skillset</h2>
+                <ul>
+                    <li>💻 Frontend Development (HTML, CSS, JavaScript)</li>
+                    <li>🔧 Backend Development (Node.js, PHP, Python)</li>
+                    <li>🎨 UI/UX Design</li>
+                    <li>⚙️ DevOps & Deployment</li>
+                </ul>
+            </div>
+            <div class="rate">
+                <h2>Hourly Rate</h2>
+                <p>💵 $5 per day</p>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.linkedin.com/in/adryan-nur-arif" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                <a href="https://github.com/iyannn03" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                <a href="https://wa.me/0895619421397" target="_blank" rel="noopener noreferrer" class="social-link">Contact Me</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <img src="image/self.jpg" alt="Foto profil Adryan Nur Arif">
+    </div>
+
+    <script>
+        const profileImage = document.getElementById('profileImage');
+        const modal = document.getElementById('modal');
+
+        profileImage.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        modal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

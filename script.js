@@ -10,8 +10,8 @@ getJSON("https://t.if.co.id/json/iyan.json", null, null, responseFunction);
 function responseFunction(response) {
     const data = response.data.card;
 
-    // Render avatar
-    const avatarHTML = `<img src="${data.avatar.src}" alt="${data.avatar.alt}">`;
+    // Render avatar dengan event untuk modal
+    const avatarHTML = `<img src="${data.avatar.src}" alt="${data.avatar.alt}" onclick="openModal('${data.avatar.src}')">`;
     document.getElementById("avatar").innerHTML = avatarHTML;
 
     // Render nama
@@ -64,8 +64,3 @@ function openModal(src) {
     modalImage.src = ""; // Kosongkan src untuk menghindari cache
   });
 }
-
-// Render avatar dengan event untuk modal
-const avatarSrc = response.data.card.avatar.src;
-const avatarHTML = `<img src="${avatarSrc}" alt="${response.data.card.avatar.alt}" onclick="openModal('${avatarSrc}')">`;
-document.getElementById('avatar').innerHTML = avatarHTML;

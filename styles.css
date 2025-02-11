@@ -1,179 +1,118 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background: url('https://cdn.grid.id/crop/0x0:0x0/x/photo/2023/05/12/mountains-clouds-landscape-snow-20230512024742.jpg') no-repeat center center/cover;
-    font-family: Arial, sans-serif;
-}
-
-.profile-picture img {
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.profile-picture img:active {
-    transform: scale(1.1);
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-    background-color: rgba(255, 255, 255, 0.9);
+/* CSS untuk kartu */
+.card {
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 10px;
-    overflow: hidden;
+    background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
   }
   
-  .modal img {
-    width: 100%;
-    height: auto;
+  .card-avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer; /* Tambahkan agar terlihat klikabel */
+  }
+  
+  .card-details .name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .card-details .occupation {
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .card-details .quote {
+    font-style: italic;
+    color: #333;
+    margin: 15px 0;
+  }
+  
+  .card-about {
+    margin: 20px 0;
+  }
+  
+  .skillset {
+    text-align: left;
+  }
+  
+  .skillset ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .skillset li {
+    padding: 5px 0;
+  }
+  
+  .rate-hour {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+  
+  /* CSS untuk footer */
+  .card-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .card-footer a {
+    text-decoration: none;
+    color: #0077b5; /* Warna LinkedIn default */
+    font-size: 1.5em;
+  }
+  
+  /* CSS untuk modal */
+  .modal {
+    display: none; /* Modal tersembunyi secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang semi-transparan */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
   }
   
   .modal.active {
-    display: block;
-  }  
-
-.business-card-horizontal {
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.9);
+    display: flex; /* Tampilkan modal sebagai flexbox */
+  }
+  
+  .modal img {
+    max-width: 90%;
+    max-height: 90%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 90%;
-    overflow: hidden;
-}
-
-.card-left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #6c63ff;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-}
-
-.card-left .profile-picture img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #fff;
-    margin-bottom: 15px;
-}
-
-.card-left .quote {
-    margin-top: 10px;
-    font-style: italic;
-    font-size: 14px;
-    color: #e0e0e0;
-}
-
-.card-right {
-    flex: 2;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card-header h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-}
-
-.card-header .job-title {
-    margin: 5px 0 20px;
-    font-size: 16px;
-    color: #777;
-}
-
-.card-body {
-    margin-bottom: 20px;
-}
-
-.card-body p {
-    font-size: 14px;
-    line-height: 1.5;
-    color: #444;
-}
-
-.skillset h2,
-.rate h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.skillset ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.skillset ul li {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-.rate p {
-    font-size: 16px;
-    color: #444;
-}
-
-.card-footer {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.card-footer .social-link {
-    display: inline-block;
-    background-color: #6c63ff;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.card-footer .social-link:hover {
-    background-color: #5a54d2;
-}
-
-@media screen and (max-width: 768px) {
-    .business-card-horizontal {
-        flex-direction: column;
-        width: 95%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* CSS untuk responsivitas */
+  @media (max-width: 480px) {
+    .card {
+      max-width: 90%;
+      padding: 15px;
     }
-
-    .card-left {
-        padding: 15px;
+  
+    .card-avatar img {
+      width: 80px;
+      height: 80px;
     }
-
-    .card-left .profile-picture img {
-        width: 100px;
-        height: 100px;
+  
+    .card-details .name {
+      font-size: 1.2em;
     }
-
-    .card-right {
-        padding: 15px;
+  
+    .card-footer a {
+      font-size: 1.2em;
     }
-
-    .card-footer {
-        justify-content: center;
-    }
-}
+  }  

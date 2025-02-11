@@ -1,52 +1,51 @@
-import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js"
-import { renderHTML, setInner } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js"
-import { getHash, onHashChange } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/url.js"
+import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js";
+import { renderHTML } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js";
 
+// Render halaman
+renderHTML("root", "home.html");
+
+// Ambil data dari JSON
 getJSON("https://t.if.co.id/json/iyan.json", null, null, responseFunction);
-renderHTML('root', 'home.html')
-// renderHTML('cardbenar', 'home.html')
 
 function responseFunction(response) {
-    // Logging data untuk debugging
-    console.log('HTTP Status:', response.status);
-    console.log('Response Data:', response.data);
+    const data = response.data.card;
 
     // Render avatar
-    const avatarSrc = response.data.card.avatar.src;
-    const avatarHTML = `<img src="${avatarSrc}" alt="${response.data.card.avatar.alt}">`;
-    document.getElementById('avatar').innerHTML = avatarHTML;
+    const avatarHTML = `<img src="${data.avatar.src}" alt="${data.avatar.alt}">`;
+    document.getElementById("avatar").innerHTML = avatarHTML;
 
     // Render nama
-    document.getElementById('nama').textContent = response.data.card.details.name;
+    document.getElementById("nama").textContent = data.details.name;
 
     // Render occupation
-    document.getElementById('occupation').textContent = response.data.card.details.occupation;
+    document.getElementById("occupation").textContent = data.details.occupation;
 
     // Render quote
-    const quote = response.data.card.details.quote || "No quote available";
-    document.getElementById('quote').textContent = `"${quote}"`;
+    const quote = data.details.skills.description || "No quote available";
+    document.getElementById("quote").textContent = `"${quote}"`;
 
     // Render about
-    const container = document.getElementById('item-list');
-    let dataitem = response.data.card.details.about;
-    dataitem.forEach((item) => {
-        const itemContainer = document.createElement("div");
-        itemContainer.className = "item";
-        const isiValue = document.createElement("span");
-        isiValue.className = "value";
-        isiValue.textContent = item.value;
-        const isiLabel = document.createElement("span");
-        isiLabel.className = "label";
-        isiLabel.textContent = item.label;
-        itemContainer.appendChild(isiValue);
-        itemContainer.appendChild(isiLabel);
-        container.appendChild(itemContainer);
-    });
+    const aboutHTML = data.details.about
+        .map((item) => `<p>${item.value}</p>`)
+        .join("");
+    document.getElementById("about").innerHTML = aboutHTML;
+
+    // Render skills
+    const skillsHTML = data.details.skills.list
+        .map((skill) => `<li>${skill}</li>`)
+        .join("");
+    document.getElementById("skills").innerHTML = skillsHTML;
 
     // Render hourly rate
-    document.getElementById('harga').textContent = response.data.card.details.rate_hour.price;
-    document.getElementById('rate').textContent = response.data.card.details.rate_hour.rate;
+    document.getElementById("harga").textContent = data.details.rate_day.price;
+    document.getElementById("rate").textContent = data.details.rate_day.rate;
 
-    // Render skill description
-    document.getElementById('isi').textContent = response.data.card.details.skills.deskripsi;
+    // Render social links
+    const socialLinksHTML = data.details.social_links
+        .map(
+            (link) =>
+                `<a href="${link.url}" target="_blank">${link.platform}</a>`
+        )
+        .join(" | ");
+    document.getElementById("social-links").innerHTML = socialLinksHTML;
 }

@@ -2,7 +2,6 @@ import { getJSON } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/api.js"
 import { renderHTML, setInner } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/element.js"
 import { getHash, onHashChange } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/url.js"
 
-onHashChange(muncul);
 getJSON("https://t.if.co.id/json/iyan.json", null, null, responseFunction);
 renderHTML('root', 'home.html')
 // renderHTML('cardbenar', 'home.html')

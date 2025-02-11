@@ -3,18 +3,8 @@ import { renderHTML, setInner } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.
 import { getHash, onHashChange } from "https://cdn.jsdelivr.net/gh/jscroot/lib@0.2.0/url.js"
 
 onHashChange(muncul);
-
-function muncul() {
-  console.log(getHash());
-  const hashpath = getHash();
-  if (hashpath === 'home') {
-    console.log("kedetek");
-    renderHTML('cardbenar', "home.html", renderDataKartu);
-  }
-}
-function renderDataKartu() {
-  getJSON("https://t.if.co.id/json/iyan.json", null, null, responseFunction);
-}
+getJSON("https://t.if.co.id/json/iyan.json", null, null, responseFunction);
+renderHTML('root', 'home.html')
 // renderHTML('cardbenar', 'home.html')
 
 function responseFunction(response) {

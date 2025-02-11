@@ -49,3 +49,23 @@ function responseFunction(response) {
         .join(" | ");
     document.getElementById("social-links").innerHTML = socialLinksHTML;
 }
+
+// Fungsi untuk membuka modal
+function openModal(src) {
+  const modal = document.getElementById("modal");
+  const modalImage = document.getElementById("modalImage");
+
+  modalImage.src = src;
+  modal.classList.add("active");
+
+  // Tutup modal saat pengguna mengklik di luar gambar
+  modal.addEventListener("click", () => {
+    modal.classList.remove("active");
+    modalImage.src = ""; // Kosongkan src untuk menghindari cache
+  });
+}
+
+// Render avatar dengan event untuk modal
+const avatarSrc = response.data.card.avatar.src;
+const avatarHTML = `<img src="${avatarSrc}" alt="${response.data.card.avatar.alt}" onclick="openModal('${avatarSrc}')">`;
+document.getElementById('avatar').innerHTML = avatarHTML;

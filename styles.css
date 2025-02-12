@@ -1,35 +1,41 @@
-/* CSS untuk kartu */
+/* Styling untuk kartu */
 .card {
   max-width: 350px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ffffff, #f8f9fa); /* Efek gradasi lembut */
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   transition: 0.3s;
 }
 
-/* Efek hover agar lebih interaktif */
+/* Efek hover pada kartu */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Avatar */
+.card-avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 .card-avatar img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
-  border: 3px solid #007bff; /* Border biru */
+  border: 3px solid #007bff;
   transition: 0.3s;
 }
 
-/* Hover efek avatar */
+/* Efek hover avatar */
 .card-avatar img:hover {
-  border-color: #e74c3c; /* Berubah merah saat hover */
+  border-color: #e74c3c;
 }
 
 /* Nama */
@@ -61,11 +67,22 @@
 .card-about {
   margin: 20px 0;
   color: #444;
+  text-align: left;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 5px;
 }
 
 /* Skillset */
 .skillset {
   text-align: left;
+  margin-top: 15px;
+}
+
+.skillset h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .skillset ul {
@@ -74,10 +91,9 @@
 }
 
 .skillset li {
-  padding: 5px 0;
-  background: #f1f1f1;
-  margin: 5px 0;
   padding: 8px;
+  background: #e3f2fd;
+  margin: 5px 0;
   border-radius: 5px;
   font-weight: bold;
 }
